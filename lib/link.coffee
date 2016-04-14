@@ -60,7 +60,7 @@ linkAtPosition = (editor, bufferPosition) ->
 # Returns a {String} link
 linkForName = (buffer, linkName) ->
   link = linkName
-  regex = new RegExp("^\\s*\\[#{_.escapeRegExp(linkName)}\\]\\s*:\\s*(.+)$", 'g')
+  regex = new RegExp("^\\s*\\[#{_.escapeRegExp(linkName)}\\]\\s*:\\s*(\\S+)\\s*$", 'ig')
   buffer.backwardsScanInRange regex, buffer.getRange(), ({match, stop}) ->
     link = match[1]
     stop()
